@@ -6,7 +6,6 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use lambda_http::Body;
 use tower_http::cors::CorsLayer;
 use utoipa::OpenApi;
 
@@ -34,7 +33,7 @@ impl FromRef<AppState> for Arc<utoipa::openapi::OpenApi> {
     }
 }
 
-pub fn make_app(config: Settings) -> Router<(), Body> {
+pub fn make_app(config: Settings) -> Router {
     let openapi = ApiDoc::openapi();
 
     let auth_routes = Router::new()

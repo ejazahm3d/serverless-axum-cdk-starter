@@ -11,20 +11,6 @@ use crate::configuration::get_configuration;
         crate::routes::auth::current_user,
         crate::routes::auth::logout,
     ),
-    components(schemas(
-        crate::routes::auth::LoginRequest,
-        crate::routes::auth::LoginResponse,
-
-        crate::routes::auth::SignUpRequest,
-        crate::routes::auth::SignUpResponse,
-
-        crate::routes::auth::CurrentUser,
-        crate::routes::auth::CurrentUserResponse,
-    )),
-    tags(
-        (name = "Health Check", description = "Application Health Check"),
-        (name = "Auth", description = "Auth Endpoints"),
-    ),
 )]
 pub struct ApiDoc;
 
