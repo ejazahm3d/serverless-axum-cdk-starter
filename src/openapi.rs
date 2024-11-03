@@ -1,10 +1,16 @@
 use utoipa::{openapi::Server, Modify, OpenApi};
 
 use crate::configuration::get_configuration;
-
 #[derive(OpenApi)]
 #[openapi(
     modifiers(&ServerAddon),
+    paths(
+        crate::routes::health_check,
+        crate::routes::auth::login,
+        crate::routes::auth::sign_up,
+        crate::routes::auth::current_user,
+        crate::routes::auth::logout,
+    ),
     tags(
         (name = "Health Check", description = "Application Health Check"),
         (name = "Auth", description = "Auth Endpoints"),
